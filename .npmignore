@@ -1,9 +1,13 @@
+.history
+
 examples
 
-babel.config.json
+src 
+
+.babelrc
+
+gulpfile.js
 
 tsconfig.json
 
 tslint.json
-
-webpack.config.js

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
+    "target": "es5",
+    "module": "ES2015",
     "strict": true,
     "jsx": "preserve",
     "importHelpers": true,
@@ -9,9 +9,10 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "declaration": true,// 是否生成声明文件
-    "declarationDir": "./lib/types/",// 声明文件打包的位置
+    "declarationDir": "./types",// 声明文件打包的位置
+    "outDir": "./lib",
     "baseUrl": ".",
     "paths": {
       "@/*": [
