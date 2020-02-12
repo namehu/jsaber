@@ -2,4 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/namehu/jsaber/compare/v0.0.1...v0.1.1) (2020-02-12)
+
+
+### Features
+
+* add cz-conventional-changelog ([b8a9520](https://github.com/namehu/jsaber/commit/b8a95200201ccf98940dda86d46fd178502cd6a1))
+* 新增standard-version ([8972873](https://github.com/namehu/jsaber/commit/89728733583075020a0150cd6bafde9b147c98d0))
+
 ### 0.0.1 (2020-02-12)

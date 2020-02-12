@@ -1,6 +1,6 @@
 {
   "name": "jsaber",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "dist/jsaber.min.js",
   "typings": "types/index.d.ts",
