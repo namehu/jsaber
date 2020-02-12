@@ -5,8 +5,7 @@
   "main": "dist/jsaber.min.js",
   "typings": "types/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -c rollup.config.js"
+    "build": "gulp"
   },
   "repository": {
     "type": "git",
@@ -18,13 +17,21 @@
     "url": "https://github.com/namehu/jsaber/issues"
   },
   "homepage": "https://github.com/namehu/jsaber#readme",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "babel-loader": "^8.0.6",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
     "gulp-typescript": "^6.0.0-alpha.1",
+    "husky": "^4.2.2",
     "rollup": "^1.31.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-uglify": "^6.0.4",
