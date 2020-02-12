@@ -1,6 +1,6 @@
 {
   "name": "jsaber",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "",
   "main": "dist/jsaber.min.js",
   "typings": "types/index.d.ts",
@@ -8,7 +8,11 @@
     "build": "gulp",
     "release": "standard-version"
   },
-  "files": ["dist", "lib", "types"],
+  "files": [
+    "dist",
+    "lib",
+    "types"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/namehu/jsaber.git"
