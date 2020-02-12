@@ -26,28 +26,56 @@ function buildTsTask() {
     .pipe(tsProject());
 
   tsResult.js
-    .pipe(babel(babelConfig))
-    .pipe(terser())
+    // .pipe(babel(babelConfig))
+    // .pipe(terser())
     .pipe(dest('lib'));
   return tsResult.dts.pipe(dest('types'));
 }
 
 // 构建umd包。可以扩展
 async function rollupTask() {
-  const bundle = await rollup.rollup({
+
+  const commonInputOption = {
     input: 'lib/index.js',
     plugins: [
       // rBabel({ ...babelConfig, exclude: 'node_modules/**', }),
-      rUglify(),
+      // rUglify(),
     ]
+  };
+
+  const all = [
+    [commonInputOption, { file: 'dist/jsaber.umd.js', format: 'umd', name: 'jsaber', exports: 'named' }],
+    [commonInputOption, { file: 'dist/jsaber.esm.js', format: 'esm' }]
+  ].map(async ([iOption, oOption]) => {
+    const bundle = await rollup.rollup(iOption);
+    return await bundle.write(oOption);
   });
-  await bundle.write({
-    file: 'dist/jsaber.min.js',
-    name: 'jsaber',
-    exports: 'named',
-    format: 'umd',
-  });
+
+  return Promise.all(all);
 }
 
+// 压缩打包后的js
+function babelAndTerserTask() {
+  src(['lib/*.js'])
+    .pipe(clean({ force: true }))
+    .pipe(babel(babelConfig))
+    .pipe(terser())
+    .pipe(dest('lib/'));
 
-exports.default = series([cleanTask, buildTsTask, rollupTask])
+  src(['dist/*.umd.js'])
+    .pipe(clean({ force: true }))
+    .pipe(babel(babelConfig))
+    .pipe(terser())
+    .pipe(dest('dist/'));
+
+  return src(['dist/*.esm.js'])
+    .pipe(clean({ force: true }))
+    .pipe(terser())
+    .pipe(dest('dist/'));
+
+}
+
+exports.babelAndTerserTask = babelAndTerserTask;
+
+
+exports.default = series([cleanTask, buildTsTask, rollupTask, babelAndTerserTask])

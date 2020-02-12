@@ -25,7 +25,7 @@ export default function loadResource(url: string, type: 'css' | 'js' = 'js'): Pr
         };
         break;
       default:
-        const script = document.createElement('script');
+        const script = document.createElement('script') as any;
         script.src = url || '';
         script.type = 'text/javascript';
         document.body.appendChild(script);
