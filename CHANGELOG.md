@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/namehu/jsaber/compare/v0.1.3...v0.1.4) (2020-02-12)
+
+
+### Features
+
+* 新增loadResource方法 ([d46cbdc](https://github.com/namehu/jsaber/commit/d46cbdcb97182ed6e1a3c4414ed8ed95611f5d71))
+
 ### [0.1.3](https://github.com/namehu/jsaber/compare/v0.1.1...v0.1.3) (2020-02-12)
 
 
