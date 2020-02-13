@@ -9,6 +9,7 @@
     "build": "npm run build:types && npm run build:js",
     "build:types": "gulp buildTypes",
     "build:js": "gulp",
+    "publish": "git push --follow-tags origin master && npm publish",
     "release": "standard-version",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch"
