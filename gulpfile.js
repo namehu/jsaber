@@ -1,81 +1,69 @@
 const { series, src, dest } = require('gulp');
 const ts = require('gulp-typescript');
 const clean = require('gulp-clean');
-const terser = require('gulp-terser');
-const babel = require('gulp-babel');
 
 const rollup = require('rollup');
-// const rBabel = require('rollup-plugin-babel');
-const { uglify: rUglify } = require('rollup-plugin-uglify');
+const babel = require('rollup-plugin-babel');
+const commonjs = require('rollup-plugin-commonjs');
+const resolve = require('rollup-plugin-node-resolve');
+const { terser } = require('rollup-plugin-terser');
 
-const tsProject = ts.createProject('tsconfig.json');
+const tsProject = ts.createProject('tsconfig.json', { emitDeclarationOnly: true, });
 
+const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 const babelConfig = {
-  presets: ['@babel/preset-env']
+  presets: ['@babel/env', '@babel/typescript'],
+  plugins: ['@babel/proposal-class-properties'],
 };
 
 // 清空lib、types、dist构建目录
-function cleanTask() {
-  return src(['lib', 'types', 'dist'], { read: false, allowEmpty: true })
+function cleanDistTask() {
+  return src(['dist'], { read: false, allowEmpty: true })
     .pipe(clean({ force: true }));
 }
 
-// 编译ts
-function buildTsTask() {
-  const tsResult = src("src/*.ts") // or tsProject.src()
-    .pipe(tsProject());
-
-  tsResult.js
-    // .pipe(babel(babelConfig))
-    // .pipe(terser())
-    .pipe(dest('lib'));
-  return tsResult.dts.pipe(dest('types'));
+// 清空Types目录
+function cleanTypesTask() {
+  return src(['types'], { read: false, allowEmpty: true })
+    .pipe(clean({ force: true }));
 }
+
+// 构建types
+function buildTypesTask() {
+  const tsResult = src("src/*.ts")
+    .pipe(tsProject());
+  return tsResult.dts.pipe(dest('types'))
+}
+
+function rollupWithOption(inputOption, outOption) {
+  return rollup.rollup(inputOption).then(bundle => bundle.write(outOption));
+}
+
 
 // 构建umd包。可以扩展
 async function rollupTask() {
 
-  const commonInputOption = {
-    input: 'lib/index.js',
+  const inputOption = {
+    input: 'src/index.ts',
     plugins: [
-      // rBabel({ ...babelConfig, exclude: 'node_modules/**', }),
-      // rUglify(),
+      // Allows node_modules resolution
+      resolve({ extensions }),
+      // Allow bundling cjs modules. Rollup doesn't understand cjs
+      commonjs(),
+      // Compile TypeScript/JavaScript files
+      babel({ ...babelConfig, extensions, exclude: 'node_modules/**', }),
+      // Minify generated es bundle
+      terser(),
     ]
   };
 
-  const all = [
-    [commonInputOption, { file: 'dist/jsaber.umd.js', format: 'umd', name: 'jsaber', exports: 'named' }],
-    [commonInputOption, { file: 'dist/jsaber.esm.js', format: 'esm' }]
-  ].map(async ([iOption, oOption]) => {
-    const bundle = await rollup.rollup(iOption);
-    return await bundle.write(oOption);
-  });
-
-  return Promise.all(all);
-}
-
-// 压缩打包后的js
-function babelAndTerserTask() {
-  src(['lib/*.js'])
-    .pipe(clean({ force: true }))
-    .pipe(babel(babelConfig))
-    .pipe(terser())
-    .pipe(dest('lib/'));
-
-  src(['dist/*.umd.js'])
-    .pipe(clean({ force: true }))
-    .pipe(babel(babelConfig))
-    .pipe(terser())
-    .pipe(dest('dist/'));
-
-  return src(['dist/*.esm.js'])
-    .pipe(clean({ force: true }))
-    .pipe(terser())
-    .pipe(dest('dist/'));
+  await rollupWithOption(inputOption, { file: 'dist/jsaber.umd.js', format: 'umd', name: 'jsaber', exports: 'named' });
+  await rollupWithOption(inputOption, { file: 'dist/jsaber.esm.js', format: 'esm' });
+  await rollupWithOption(inputOption, { file: 'dist/jsaber.min.js', format: 'iife', name: 'jsaber', exports: 'named' });
 
 }
 
-exports.babelAndTerserTask = babelAndTerserTask;
 
+exports.buildTypes = series([cleanTypesTask, buildTypesTask]);
 
-exports.default = series([cleanTask, buildTsTask, rollupTask, babelAndTerserTask])
+exports.default = series([cleanDistTask, rollupTask]);

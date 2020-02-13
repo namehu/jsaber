@@ -6,12 +6,15 @@
   "module": "dist/jsaber.esm.js",
   "typings": "types/index.d.ts",
   "scripts": {
-    "build": "gulp",
-    "release": "standard-version"
+    "build": "npm run build:types && npm run build:js",
+    "build:types": "gulp buildTypes",
+    "build:js": "gulp",
+    "release": "standard-version",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch"
   },
   "files": [
     "dist",
-    "lib",
     "types",
     "src"
   ],
@@ -26,8 +29,11 @@
   },
   "homepage": "https://github.com/namehu/jsaber#readme",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.8.4",
+    "@babel/preset-typescript": "^7.8.3",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "babel-loader": "^8.0.6",
@@ -35,13 +41,13 @@
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
-    "gulp-terser": "^1.2.0",
     "gulp-typescript": "^6.0.0-alpha.1",
-    "gulp-uglify": "^3.0.2",
     "husky": "^4.2.2",
     "rollup": "^1.31.0",
     "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-uglify": "^6.0.4",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.2.0",
     "standard-version": "^7.1.0",
     "tslint": "^6.0.0",
     "typescript": "^3.7.5"
