@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/namehu/jsaber/compare/v0.1.4...v0.1.5) (2020-02-13)
+
+
+### Features
+
+* 新增PC和Phone的设备判断 ([338194d](https://github.com/namehu/jsaber/commit/338194debbdb0df01916695a6237de03c35dfc0f))
+* 新增千分符方法 ([da7fffb](https://github.com/namehu/jsaber/commit/da7fffbe62d00c9fdb4544c0483fe55b91dcd1fd))
+* 新增颜色转换函数 ([74899bb](https://github.com/namehu/jsaber/commit/74899bbf009c06d5d9ef536afe674fa9ed575890))
+
 ### [0.1.4](https://github.com/namehu/jsaber/compare/v0.1.3...v0.1.4) (2020-02-12)
 
 
