@@ -4,6 +4,7 @@ import percentNumber from './percent-number';
 import loadResource from './load-resource';
 import isPC from './is-pc';
 import isPhone from './is-phone';
+import thousandBitSeparator from './thousand-bit-separator';
 
 
 export default {
@@ -12,6 +13,7 @@ export default {
   isPhone,
   loadResource,
   percentNumber,
+  thousandBitSeparator,
 };
 
 export {
@@ -20,4 +22,5 @@ export {
   isPhone,
   loadResource,
   percentNumber,
+  thousandBitSeparator,
 }
