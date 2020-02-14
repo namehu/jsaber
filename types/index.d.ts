@@ -1,0 +1,22 @@
+import createHash from './create-hash';
+import percentNumber from './percent-number';
+import loadCss from './load-css';
+import loadResource from './load-resource';
+import isPC from './is-pc';
+import isPhone from './is-phone';
+import thousandBitSeparator from './thousand-bit-separator';
+import colorRgb from './color-rgb';
+import colorHex from './color-hex';
+declare const _default: {
+    colorHex: typeof colorHex;
+    colorRgb: typeof colorRgb;
+    createHash: typeof createHash;
+    isPC: typeof isPC;
+    isPhone: typeof isPhone;
+    loadCss: typeof loadCss;
+    loadResource: typeof loadResource;
+    percentNumber: typeof percentNumber;
+    thousandBitSeparator: typeof thousandBitSeparator;
+};
+export default _default;
+export { colorHex, colorRgb, createHash, isPC, isPhone, loadCss, loadResource, percentNumber, thousandBitSeparator, };
