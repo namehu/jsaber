@@ -46,7 +46,7 @@
       true,
       {
         "limit": 120,
-        "ignore-pattern": "^(import|export {(.*?)}|(export )?function)|export default class|@State|components: {",
+        "ignore-pattern": "^(import|export {(.*?)}|(export )?(default )?function)|export default class|@State|components: {",
         "check-strings": true,
         "check-regex": true
       }
