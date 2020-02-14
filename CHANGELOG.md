@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8](https://github.com/namehu/jsaber/compare/v0.1.7...v0.1.8) (2020-02-14)
+
+
+### Features
+
+* 将dist和types目录加入到git版本控制中 ([48455c2](https://github.com/namehu/jsaber/commit/48455c2ab821c0cd39cba2f65595c814b2bc4a94))
+
 ### [0.1.7](https://github.com/namehu/jsaber/compare/v0.1.6...v0.1.7) (2020-02-14)
 
 
