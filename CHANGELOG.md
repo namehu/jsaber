@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.9](https://github.com/namehu/jsaber/compare/v0.1.8...v0.1.9) (2020-02-16)
+
+
+### Features
+
+* 新增on、off两种方法 ([7993386](https://github.com/namehu/jsaber/commit/79933863aa4606800bd409696744ddbd3801292e))
+
 ### [0.1.8](https://github.com/namehu/jsaber/compare/v0.1.7...v0.1.8) (2020-02-14)
 
 
