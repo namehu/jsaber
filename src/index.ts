@@ -10,6 +10,7 @@ import on from './on';
 import thousandBitSeparator from './thousand-bit-separator';
 import colorRgb from './color-rgb';
 import colorHex from './color-hex';
+import randomString from './random-string';
 
 export default {
   colorHex,
@@ -17,11 +18,12 @@ export default {
   createHash,
   isPC,
   isPhone,
-  off,
-  on,
   loadCss,
   loadResource,
+  off,
+  on,
   percentNumber,
+  randomString,
   thousandBitSeparator,
 };
 
@@ -31,10 +33,11 @@ export {
   createHash,
   isPC,
   isPhone,
-  off,
-  on,
   loadCss,
   loadResource,
+  off,
+  on,
   percentNumber,
+  randomString,
   thousandBitSeparator,
 }
