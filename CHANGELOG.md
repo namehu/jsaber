@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com/namehu/jsaber/compare/v0.1.10...v0.1.11) (2020-02-25)
+
+
+### Features
+
+* 新增randomString方法引用。更新打包文件 ([64eba9d](https://github.com/namehu/jsaber/commit/64eba9df82ddef07f36868a1af644b8faed9e599))
+
 ### [0.1.10](https://github.com/namehu/jsaber/compare/v0.1.9...v0.1.10) (2020-02-25)
 
 
