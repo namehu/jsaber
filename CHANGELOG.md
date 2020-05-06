@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.12](https://github.com/namehu/jsaber/compare/v0.1.11...v0.1.12) (2020-05-06)
+
+
+### Features
+
+* 新增encode64和decode64方法 ([99f8047](https://github.com/namehu/jsaber/commit/99f80474b80f778ef915f71778d567bbfd3c6eb7))
+
 ### [0.1.11](https://github.com/namehu/jsaber/compare/v0.1.10...v0.1.11) (2020-02-25)
 
 
