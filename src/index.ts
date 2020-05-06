@@ -11,8 +11,12 @@ import thousandBitSeparator from './thousand-bit-separator';
 import colorRgb from './color-rgb';
 import colorHex from './color-hex';
 import randomString from './random-string';
+import encode64 from './encode64';
+import decode64 from './decode64';
 
 export default {
+  encode64,
+  decode64,
   colorHex,
   colorRgb,
   createHash,
@@ -28,6 +32,8 @@ export default {
 };
 
 export {
+  encode64,
+  decode64,
   colorHex,
   colorRgb,
   createHash,

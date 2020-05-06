@@ -10,7 +10,11 @@ import thousandBitSeparator from './thousand-bit-separator';
 import colorRgb from './color-rgb';
 import colorHex from './color-hex';
 import randomString from './random-string';
+import encode64 from './encode64';
+import decode64 from './decode64';
 declare const _default: {
+    encode64: typeof encode64;
+    decode64: typeof decode64;
     colorHex: typeof colorHex;
     colorRgb: typeof colorRgb;
     createHash: typeof createHash;
@@ -25,4 +29,4 @@ declare const _default: {
     thousandBitSeparator: typeof thousandBitSeparator;
 };
 export default _default;
-export { colorHex, colorRgb, createHash, isPC, isPhone, loadCss, loadResource, off, on, percentNumber, randomString, thousandBitSeparator, };
+export { encode64, decode64, colorHex, colorRgb, createHash, isPC, isPhone, loadCss, loadResource, off, on, percentNumber, randomString, thousandBitSeparator, };
